@@ -1,0 +1,20 @@
+package com.etc._HomeWork;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class saveMoney implements Runnable {
+	private BankDemo bank = null;
+
+	public saveMoney(BankDemo band) {
+		this.bank = bank;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕHH£ºmm£ºss");
+		String string = sdFormat.format(new Date());
+		bank.save(1000.00,string);
+	}
+}

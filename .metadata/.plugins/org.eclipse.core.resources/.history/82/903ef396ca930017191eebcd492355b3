@@ -1,0 +1,26 @@
+package SocketDemo;
+
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+public class clientSocket {
+public static void main(String[] args) throws UnknownHostException, IOException {
+	Socket socket = new Socket("localhost",1024);
+	
+	OutputStream outputStream = socket.getOutputStream();
+	ObjectOutputStream oos = new ObjectOutputStream(outputStream);
+	
+	System.out.println("我是客户端，开始发信息");
+	User user = new User("root","123456");
+	oos.writeObject(user);
+	
+	oos.close();
+	outputStream.close();
+//	br.close();
+//	inputStream.close();
+	socket.close();
+}
+}

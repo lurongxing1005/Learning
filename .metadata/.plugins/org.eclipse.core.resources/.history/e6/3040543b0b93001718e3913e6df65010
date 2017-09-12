@@ -1,0 +1,23 @@
+package com.etc._BankHomeWork;
+/**
+ * 鐢熶骇鑰呭拰娑堣垂鑰�
+ * @author Administrator
+ *
+ */
+
+public class AppTest {
+	public static void main(String[] args) {
+		//鍏变韩璧勬簮瀵硅薄
+		ShareResoure share = new ShareResoure();
+		
+		//鐢熶骇鑰�----share
+		Producer pro = new Producer(share);
+		new Thread(pro).start();
+		
+		//娑堣垂鑰�----share
+		Consumer con = new Consumer(share);
+		new Thread(con).start();
+		
+	}
+
+}

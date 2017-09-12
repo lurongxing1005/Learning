@@ -1,0 +1,11 @@
+package com.etc._HomeWork;
+
+public class text {
+public static void main(String[] args) {
+	BankDemo bd = new BankDemo();
+	saveMoney sm = new saveMoney(bd);
+	takeMoney tm = new takeMoney(bd);
+	new Thread(sm).start();
+	new Thread(tm).start();
+}
+}

@@ -1,0 +1,18 @@
+package com.etc._BankHomeWork;
+
+public class AppTest {
+	public static void main(String[] args) {
+	
+		BankDemo bank = new BankDemo();
+		
+	
+		savwMoney sm = new savwMoney(bank);
+		new Thread(sm).start();
+		
+		
+		takeMoney tm = new takeMoney(bank);
+		new Thread(tm).start();
+		
+	}
+
+}

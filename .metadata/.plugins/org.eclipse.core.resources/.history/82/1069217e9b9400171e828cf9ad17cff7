@@ -1,0 +1,9 @@
+package GuiDemo;
+
+import javax.swing.JFrame;
+
+public class LayoutDemo {
+public static void main(String[] args) {
+	new JFrame()
+}
+}

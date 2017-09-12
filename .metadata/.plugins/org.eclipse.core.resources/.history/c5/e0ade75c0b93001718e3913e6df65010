@@ -1,0 +1,25 @@
+package com.etc._BankHomeWork;
+
+
+public class saveMoney implements Runnable {
+	private ShareResoure share = null;
+	public saveMoney(ShareResoure share){
+		this.share = share;
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		for(int i=0;i<50;i++){
+			SimpleDateFormat sdFormat = new SimpleDateFormat(
+					"yyyyÄêMMÔÂddÈÕHH£ºmm£ºss");
+			String string = sdFormat.format(new Date());
+			if (i % 2 == 0) {
+				bank.save(1000, string);
+			} else {
+				bank.save(2000, string);
+			}
+		}
+		
+	}
+
+}

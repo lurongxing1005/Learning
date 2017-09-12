@@ -1,0 +1,34 @@
+package GuiDemo;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class JframeDemo {
+	public static void main(String[] args) {
+		JFrame frame = new JFrame();
+
+		frame.setTitle("你好，世界！");
+		frame.setBounds(100, 100, 500, 500);
+        frame.setLayout(new FlowLayout());
+		
+		JButton button = new JButton("我是按钮");
+		
+		button.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println("点我干嘛");
+			}
+		});
+        frame.add(button);
+        
+		frame.validate();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}

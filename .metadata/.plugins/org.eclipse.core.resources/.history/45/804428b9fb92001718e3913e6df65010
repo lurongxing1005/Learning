@@ -1,0 +1,63 @@
+package com.etc._HomeWork;
+
+class object1 extends Thread{
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		//super.run();
+		for(int i=0;i<5;i++){
+			
+			try {
+				Thread.sleep(1000);
+				
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Bæ‰§è¡Œäº?+i+"ç§?);
+		}
+	}
+}
+class object2 extends Thread{
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		//super.run();
+		for(int i=0;i<9;i++){
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Cæ‰§è¡Œäº?+i+"ç§?);
+			
+		}
+	}
+}
+public class JoinHomeWork {
+	public static void main(String[] args) {
+		object1 B = new object1();
+		object2 C = new object2();
+		try {
+			for(int i=0;i<50;i++){
+				System.out.println("Aæ‰§è¡Œäº?+i+"ç§?);
+				Thread.sleep(1000);
+				if(i==3){
+					B.start();
+					B.join();
+				
+					C.start();
+					C.join();
+				}
+				
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

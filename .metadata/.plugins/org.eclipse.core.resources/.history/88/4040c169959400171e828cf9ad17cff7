@@ -1,0 +1,21 @@
+package GuiDemo;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class JframeDemo {
+public static void main(String[] args) {
+	JFrame frame = new JFrame();
+	
+	frame.setTitle("你好，世界！");
+	frame.setBounds(100, 100, 300, 300);
+	
+	JButton button = new JButton("我是按钮");
+	frame.add(button);
+	//button.addActionListener(l);
+	
+	
+	frame.validate();
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+}
+}

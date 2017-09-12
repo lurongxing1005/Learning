@@ -1,0 +1,50 @@
+package UDPDemo;
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+
+public class serverUDP {
+	public static void main(String[] args) {
+
+		try {
+			System.out.println("服务器准备好了");
+//			// 1.创建套接字
+//			DatagramSocket ds = new DatagramSocket(6666);
+//
+//			// 2.创建数据包
+//			byte[] buf = new byte[1024];
+//			DatagramPacket dp = new DatagramPacket(buf, buf.length);
+//
+//			// 3.接收数据包
+//			ds.receive(dp);
+//
+//			// 4.解析数据包
+//			String mess = new String(buf, 0, dp.getLength());
+//			System.out.println("客户端说:" + mess);
+			
+			
+			String str = "不约！";
+			byte[] by = str.getBytes();
+			InetAddress ia = InetAddress.getByName("localhost");
+			 DatagramSocket dst = new DatagramSocket();
+			 DatagramPacket dpt = new DatagramPacket(by, by.length, ia, 6666);
+
+			// 2创建套接字
+			dst.send(dpt);
+
+			// 5.关闭资源
+			dst.close();
+			
+
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

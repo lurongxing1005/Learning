@@ -1,0 +1,9 @@
+package com.etc._homeWork;
+class ticker implements Runnable{
+	
+}
+public class HomeWork {
+public static void main(String[] args) {
+	
+}
+}

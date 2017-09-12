@@ -1,0 +1,14 @@
+package com.etc._HomeWork;
+
+public class saveMoney implements Runnable{
+	private BankDemo bank = null;
+
+	public saveMoney(BankDemo band) {
+		this.bank = bank;
+	}
+   @Override
+public void run() {
+	// TODO Auto-generated method stub
+	bank.save();
+}
+}

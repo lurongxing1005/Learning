@@ -1,0 +1,139 @@
+package GuiDemo;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JButton;
+import javax.swing.JSpinner;
+import javax.swing.JComboBox;
+import javax.swing.JCheckBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class register {
+
+	public JFrame frame;
+	private JTextField userNameField;
+	private JPasswordField passwordField;
+	private JTextField otherHobbyField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					register window = new register();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public register() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel userNameLabel = new JLabel("\u7528\u6237\u540D\uFF1A");
+		userNameLabel.setBounds(41, 28, 54, 15);
+		frame.getContentPane().add(userNameLabel);
+		
+		JLabel passWordLabel = new JLabel("\u5BC6\u7801\uFF1A");
+		passWordLabel.setBounds(41, 64, 54, 15);
+		frame.getContentPane().add(passWordLabel);
+		
+		JLabel sexlabel = new JLabel("\u6027\u522B\uFF1A");
+		sexlabel.setBounds(41, 99, 54, 15);
+		frame.getContentPane().add(sexlabel);
+		
+		JLabel birthDaylabel = new JLabel("\u751F\u65E5\uFF1A");
+		birthDaylabel.setBounds(41, 134, 54, 15);
+		frame.getContentPane().add(birthDaylabel);
+		
+		JLabel hobbylabel = new JLabel("\u7231\u597D\uFF1A");
+		hobbylabel.setBounds(41, 159, 54, 15);
+		frame.getContentPane().add(hobbylabel);
+		
+		userNameField = new JTextField();
+		userNameField.setBounds(105, 25, 201, 21);
+		frame.getContentPane().add(userNameField);
+		userNameField.setColumns(10);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(105, 61, 201, 21);
+		frame.getContentPane().add(passwordField);
+		
+		JRadioButton manradioButton = new JRadioButton("\u7537");
+		manradioButton.setBounds(133, 95, 64, 23);
+		frame.getContentPane().add(manradioButton);
+		
+		JRadioButton womenradioButton = new JRadioButton("\u5973");
+		womenradioButton.setBounds(199, 95, 64, 23);
+		frame.getContentPane().add(womenradioButton);
+		
+		JComboBox monthcomboBox = new JComboBox();
+		monthcomboBox.setBounds(199, 131, 78, 21);
+		frame.getContentPane().add(monthcomboBox);
+		
+		JComboBox yearcomboBox = new JComboBox();
+		yearcomboBox.setBounds(98, 131, 78, 21);
+		frame.getContentPane().add(yearcomboBox);
+		yearcomboBox.addItem(1993);
+		
+		JComboBox daycomboBox = new JComboBox();
+		daycomboBox.setBounds(303, 131, 72, 21);
+		frame.getContentPane().add(daycomboBox);
+		
+		JCheckBox ballcheckBox = new JCheckBox("\u6253\u7403");
+		ballcheckBox.setBounds(93, 155, 54, 23);
+		frame.getContentPane().add(ballcheckBox);
+		
+		JCheckBox singcheckBox = new JCheckBox("\u5531\u6B4C");
+		singcheckBox.setBounds(186, 155, 103, 23);
+		frame.getContentPane().add(singcheckBox);
+		
+		JCheckBox runcheckBox = new JCheckBox("\u8DD1\u6B65");
+		runcheckBox.setBounds(93, 180, 72, 23);
+		frame.getContentPane().add(runcheckBox);
+		
+		JCheckBox dancecheckBox = new JCheckBox("\u8DF3\u821E");
+		dancecheckBox.setBounds(186, 180, 49, 23);
+		frame.getContentPane().add(dancecheckBox);
+		
+		JButton registerbutton = new JButton("\u6CE8\u518C");
+		registerbutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		registerbutton.setBounds(157, 227, 106, 35);
+		frame.getContentPane().add(registerbutton);
+		
+		JLabel otherHobbylabel = new JLabel("\u5176\u4ED6\uFF1A");
+		otherHobbylabel.setBounds(252, 184, 54, 15);
+		frame.getContentPane().add(otherHobbylabel);
+		
+		otherHobbyField = new JTextField();
+		otherHobbyField.setBounds(288, 184, 66, 21);
+		frame.getContentPane().add(otherHobbyField);
+		otherHobbyField.setColumns(10);
+	}
+}

@@ -1,0 +1,5 @@
+package com.etc._GuiText;
+
+public class TempData {
+       public static String userName;
+}

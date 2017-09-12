@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.etc._ObjectAppleDemo.ObjectOutputStream.java&apos; to &apos;ObjectOutputStreamDemo.java&apos;&#x0D;&#x0A;- Original project: &apos;Day904&apos;&#x0D;&#x0A;- Original element: &apos;com.etc._ObjectAppleDemo.ObjectOutputStream.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.etc._ObjectAppleDemo.ObjectOutputStreamDemo.java&apos;" description="Rename compilation unit &apos;ObjectOutputStream.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.etc._ObjectAppleDemo{ObjectOutputStream.java" name="ObjectOutputStreamDemo.java" references="false" stamp="1504523970712" version="1.0"/>
+</session>

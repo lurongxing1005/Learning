@@ -1,0 +1,45 @@
+package com.etc._HomeWork;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class BankDemo {
+	private double money;
+	private String date;
+	private boolean isEmpty =true;
+	private final Lock lock = new ReentrantLock();
+	private Condition condition = lock.newCondition();
+	public void save(){
+		lock.lock();
+		try {
+			while(!isEmpty){
+				condition.await();
+			}System.out.println("存钱成功");
+			Thread.sleep(100);
+			isEmpty =false;
+			condition.signal();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			lock.unlock();
+		}
+	}
+	public void take(){
+		lock.lock();
+		try {
+			while(isEmpty){
+				condition.await();
+			}System.out.println("取钱成功");
+			Thread.sleep(100);
+			isEmpty =true;
+			condition.signal();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			lock.unlock();
+		}
+	}
+}

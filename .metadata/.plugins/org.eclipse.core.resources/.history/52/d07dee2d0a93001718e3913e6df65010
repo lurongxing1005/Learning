@@ -1,0 +1,62 @@
+package com.etc._BankHomeWork;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class BankDemo {
+	private String name;
+	private String gender;
+	private boolean isEmpty = true;
+	private final Lock lock = new ReentrantLock();
+	private Condition condition = lock.newCondition();
+
+	public void push(String name, String gender) {
+		lock.lock();
+		try {
+
+			while (!isEmpty) {
+				condition.await();
+			}
+
+			this.name = name;
+			Thread.sleep(100);
+			this.gender = gender;
+
+			isEmpty = false;
+
+			condition.signalAll();
+
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			lock.unlock();
+		}
+
+	}
+
+	public void pop() {
+		lock.lock();
+		try {
+
+			while (isEmpty) {
+				condition.await();
+			}
+
+			System.out.println(this.name + "-------" + this.gender);
+			Thread.sleep(100);
+
+			isEmpty = true;
+
+			condition.signal();
+
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			lock.unlock();
+		}
+	}
+
+}

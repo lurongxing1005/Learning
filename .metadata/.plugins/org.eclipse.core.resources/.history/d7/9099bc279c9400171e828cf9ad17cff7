@@ -1,0 +1,43 @@
+package GuiDemo;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class LayoutDemo {
+public static void main(String[] args) {
+	JFrame frame = new JFrame();
+	frame.setTitle("LayOut");
+	frame.setBounds(100, 100, 300, 300);
+	
+	frame.setLayout(new BorderLayout());
+	JPanel southPanel = new JPanel();
+	southPanel.setBackground(Color.BLUE);
+	frame.add(southPanel, BorderLayout.SOUTH);
+	JPanel weatPanel = new JPanel();
+	frame.add(weatPanel, BorderLayout.WEST);
+	JPanel centerPanel = new JPanel();
+	frame.add(centerPanel, BorderLayout.CENTER);
+	
+	centerPanel.setLayout(new BorderLayout());
+	JPanel northPanel2 = new JPanel();
+	frame.add(northPanel2, BorderLayout.NORTH);
+	JPanel centerPanel2 = new JPanel();
+	frame.add(centerPanel2, BorderLayout.CENTER);
+	
+	centerPanel2.setLayout(new GridLayout(3, 2, 20, 40));
+	for (int i = 0; i < 6; i++) {
+		frame.add(new JButton("ÎÒÊÇ°´Å¥"+i));
+	}
+	
+	
+	
+	frame.setVisible(true);
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+}
+}

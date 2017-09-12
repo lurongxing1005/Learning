@@ -1,0 +1,76 @@
+package com.etc._BankHomeWork;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+/**
+ * 鍏变韩璧勬簮
+ * @author Administrator
+ *
+ */
+
+public class ShareResoure {
+	private String name;
+	private String gender;
+	private boolean isEmpty = true;//琛ㄧず鍏变韩璧勬簮鏄惁涓虹┖
+	private final Lock lock = new ReentrantLock();
+	private Condition condition = lock.newCondition();
+//	Condition newCondition() 
+//    杩斿洖缁戝畾鍒版 Lock 瀹炰緥鐨勬柊 Condition 瀹炰緥銆�
+	
+	//鐢熶骇鑰呯粰鍏变韩璧勬簮鏁版嵁
+	public void push(String name,String gender){
+		lock.lock();//鍔犻攣
+		try {
+			//this 鐢熶骇鑰�
+			while(!isEmpty){//false  鍏变韩璧勬簮涓嶄负绌� 涓嶇敤鐢熶骇浜�
+				condition.await();   //鐢熶骇鑰呯潯瑙�
+			}
+			//寮�鐢熶骇
+			this.name = name;
+			Thread.sleep(100);
+			this.gender = gender;
+			//鐢熶骇缁撴潫
+			isEmpty = false;
+			
+			condition.signalAll();//鐢熶骇鑰呭彨娑堣垂鑰呮潵娑堣垂
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			lock.unlock();//閲婃斁閿�
+		}
+		
+	}
+	
+	//娑堣垂鑰呬粠鍏变韩璧勬簮鎷挎暟鎹�
+	public void pop(){
+		lock.lock();//鍔犻攣
+		try {
+			
+			//this  鏄秷璐硅�
+			while(isEmpty){  //ture  鍏变韩璧勬簮涓虹┖  涓嶇敤娑堣垂浜�
+				condition.await(); //娑堣垂鑰呯潯瑙�
+			}
+			
+			//寮�娑堣垂
+			System.out.println(this.name+"-------"+this.gender);
+			Thread.sleep(100);
+			//娑堣垂缁撴潫
+			isEmpty = true;
+			
+			condition.signal();//娑堣垂鑰呭彨鐢熶骇鑰呮潵鐢熶骇
+		
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			lock.unlock();//閲婃斁閿�
+		}
+	}
+	
+
+}
